@@ -24,9 +24,3 @@ https://YOUR-GITHUB-USERNAME.github.io/leap-type-test/
 ## Tracking Notes
 
 Registration links include UTM parameters and the quiz result type, for example `utm_content=result_cta` and `leap_type=ALFC`.
-
-The registration destination is:
-
-```text
-https://leapfest2026.edigest.hk/?utm_source=leap_type_test&utm_medium=interactive_quiz&utm_campaign=the_leap_fest_2026&utm_content=...#/buyTickets
-```
