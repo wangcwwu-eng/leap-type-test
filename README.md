@@ -9,17 +9,12 @@ This folder is ready for manual GitHub Pages upload.
 
 ## Manual GitHub Pages Steps
 
-1. Create a new public GitHub repository, for example `leap-type-test`.
-2. Upload `index.html` and `README.md` to the repository root.
-3. Go to `Settings` > `Pages`.
-4. Under `Build and deployment`, choose `Deploy from a branch`.
-5. Choose branch `main` and folder `/root`, then save.
-6. Wait 1-2 minutes.
-7. The site URL will be:
-
-```text
-https://YOUR-GITHUB-USERNAME.github.io/leap-type-test/
-```
+1. Upload `index.html` and `README.md` to the repository root, replacing the old files.
+2. Go to `Settings` > `Pages`.
+3. Under `Build and deployment`, choose `Deploy from a branch`.
+4. Choose branch `main` and folder `/root`, then save.
+5. Wait 1-2 minutes.
+6. If the old version still appears on phone, open the URL with `?v=mobile-fix` once to bypass cache.
 
 ## Tracking Notes
 
