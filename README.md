@@ -21,10 +21,12 @@ This folder is ready for manual GitHub Pages upload.
 https://YOUR-GITHUB-USERNAME.github.io/leap-type-test/
 ```
 
-Replace `YOUR-GITHUB-USERNAME` with your GitHub username and `leap-type-test` with your repository name.
+## Tracking Notes
 
-## Notes
+Registration links include UTM parameters and the quiz result type, for example `utm_content=result_cta` and `leap_type=ALFC`.
 
-- The registration links point to `https://leapfest2026.edigest.hk/#/buyTickets`.
-- The quiz is static HTML/CSS/JavaScript and does not need a server.
-- If you rename the repo, the GitHub Pages URL changes to match the repo name.
+The registration destination is:
+
+```text
+https://leapfest2026.edigest.hk/?utm_source=leap_type_test&utm_medium=interactive_quiz&utm_campaign=the_leap_fest_2026&utm_content=...#/buyTickets
+```

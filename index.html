@@ -844,6 +844,47 @@
       gap: 10px;
     }
 
+    .result-register-btn {
+      background: var(--amber);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .registration-band {
+      border: 3px solid var(--line);
+      border-radius: 16px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 2px, transparent 2px 32px),
+        var(--amber);
+      box-shadow: 5px 5px 0 var(--line);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .registration-band-copy {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .registration-band-title {
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 950;
+      line-height: 1.2;
+    }
+
+    .registration-band-text {
+      color: #3f382f;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
     .share-panel {
       padding: 20px;
       display: grid;
@@ -1125,6 +1166,10 @@
         grid-template-columns: 1fr;
       }
 
+      .registration-band {
+        grid-template-columns: 1fr;
+      }
+
       .share-panel {
         grid-template-columns: 1fr;
       }
@@ -1242,7 +1287,7 @@
       </div>
       <div class="top-actions">
         <button class="icon-btn" id="topRestart" type="button" aria-label="重新開始" title="重新開始">↻</button>
-        <a class="text-btn" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">免費登記</a>
+        <a class="text-btn" id="topRegisterLink" data-register-source="top_nav" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">免費登記</a>
       </div>
     </header>
 
@@ -1319,7 +1364,7 @@
           <div class="result-actions">
             <button class="primary-btn" id="downloadBtn" type="button">下載分享卡</button>
             <button class="text-btn" id="copyBtn" type="button">複製 caption</button>
-            <a class="text-btn quiet-btn" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">免費登記</a>
+            <a class="text-btn quiet-btn result-register-btn" id="resultRegisterLink" data-register-source="result_cta" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">免費登記 The LEAP FEST 2026</a>
             <button class="text-btn" id="restartBtn" type="button">再玩一次</button>
           </div>
 
@@ -1346,6 +1391,14 @@
             <div class="info-title">啱你嘅 LEAP FEST Sessions</div>
             <div class="session-list" id="sessionList"></div>
           </div>
+
+          <div class="registration-band">
+            <div class="registration-band-copy">
+              <div class="registration-band-title">想喺現場搵到同 type 的 New High Builder？</div>
+              <div class="registration-band-text">免費登記 The LEAP FEST 2026，帶住你嘅結果入場，搵啱 session 同合作機會。</div>
+            </div>
+            <a class="primary-btn" id="sessionRegisterLink" data-register-source="session_band" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">免費登記</a>
+          </div>
         </div>
 
         <aside class="panel share-panel">
@@ -1363,10 +1416,10 @@
       <div class="character-sprite registration-mascot" id="registrationMascot" aria-hidden="true">
         <img data-character-sprite src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" width="1254" height="1254" alt="">
       </div>
-      <h2 class="registration-title" id="registrationModalTitle">帶住你嘅 New High Type 入場？</h2>
-      <p class="registration-copy" id="registrationModalDesc">The LEAP FEST 2026 by EDigest，2026年8月21日，HKCEC N201-N212。</p>
+      <h2 class="registration-title" id="registrationModalTitle">睇完你嘅 Type，再拎埋入場證？</h2>
+      <p class="registration-copy" id="registrationModalDesc">免費登記 The LEAP FEST 2026，帶住你嘅 New High Type 入場，搵啱 session 同合作機會。</p>
       <div class="registration-actions">
-        <a class="primary-btn" id="modalRegisterLink" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">立即免費登記</a>
+        <a class="primary-btn" id="modalRegisterLink" data-register-source="delayed_modal" href="https://leapfest2026.edigest.hk/#/buyTickets" target="_blank" rel="noreferrer">立即免費登記</a>
         <button class="text-btn" id="modalSkipBtn" type="button">唔使住，睇結果先</button>
       </div>
     </div>
@@ -1719,14 +1772,14 @@
         ]
       },
       {
-        theme: "Networking",
-        text: "你去 The LEAP FEST，第一個想認識的人係？",
+        theme: "活動現場",
+        text: "如果一個活動現場集合 AI 實戰、出海策略、commerce growth 同跨界合作，你會最想先行去邊個角落？",
         color: "#8d6b2f",
         answers: [
-          { text: "做 AI 產品落地的人", score: { a: 1, l: 1, f: 1, s: 1 } },
-          { text: "有出海經驗的企業領袖", score: { a: 1, g: 1, r: 1, c: 1 } },
-          { text: "懂 commerce growth 的品牌/平台人", score: { h: 1, g: 1, f: 1, c: 1 } },
-          { text: "能串起資源和合作的 ecosystem builder", score: { h: 1, g: 1, r: 1, s: 1 } }
+          { text: "AI demo 同產品落地區，睇技術點變成實際流程", score: { a: 1, l: 1, f: 1, s: 1 } },
+          { text: "出海策略同風險討論區，聽市場、合規同 localization", score: { a: 1, g: 1, r: 1, c: 1 } },
+          { text: "品牌內容同 commerce growth 區，研究點吸客同轉化", score: { h: 1, g: 1, f: 1, c: 1 } },
+          { text: "合作伙伴同資源配對區，搵可以一齊開局的人", score: { h: 1, g: 1, r: 1, s: 1 } }
         ]
       },
       {
@@ -1791,8 +1844,12 @@
       answers: [],
       scores: { a: 0, h: 0, g: 0, l: 0, f: 0, r: 0, c: 0, s: 0 },
       result: null,
-      registrationPromptSeen: false
+      registrationPromptSeen: false,
+      registrationPromptEnabled: false
     };
+
+    const registrationOrigin = "https://leapfest2026.edigest.hk/";
+    const registrationHash = "#/buyTickets";
 
     const axes = [
       { left: "Human Story", right: "AI Scale", neg: "h", pos: "a", color: "#0f7bff" },
@@ -1815,6 +1872,7 @@
       miniFeed: document.getElementById("miniFeed"),
       softNote: document.getElementById("softNote"),
       topRestart: document.getElementById("topRestart"),
+      topRegisterLink: document.getElementById("topRegisterLink"),
       quizCharacter: document.getElementById("quizCharacter"),
       typeCode: document.getElementById("typeCode"),
       typeCharacter: document.getElementById("typeCharacter"),
@@ -1831,6 +1889,8 @@
       downloadBtn: document.getElementById("downloadBtn"),
       copyBtn: document.getElementById("copyBtn"),
       restartBtn: document.getElementById("restartBtn"),
+      resultRegisterLink: document.getElementById("resultRegisterLink"),
+      sessionRegisterLink: document.getElementById("sessionRegisterLink"),
       registrationModal: document.getElementById("registrationModal"),
       registrationMascot: document.getElementById("registrationMascot"),
       modalRegisterLink: document.getElementById("modalRegisterLink"),
@@ -1941,7 +2001,9 @@
       setProgress(100);
       const key = buildResultKey();
       state.result = resultTypes[key] || resultTypes.AGFC;
+      state.registrationPromptEnabled = true;
       document.documentElement.style.setProperty("--result-color", state.result.color);
+      updateRegistrationLinks();
 
       el.quizView.classList.add("hidden");
       el.resultView.classList.add("active");
@@ -1963,13 +2025,15 @@
       el.shareCopy.textContent = makeCaption();
       drawShareCard();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.setTimeout(showRegistrationPrompt, 650);
+      window.clearTimeout(showRegistrationPrompt.timer);
+      showRegistrationPrompt.timer = window.setTimeout(() => showRegistrationPrompt("time_on_result"), 10000);
     }
 
-    function showRegistrationPrompt() {
-      if (!state.result || state.registrationPromptSeen) return;
+    function showRegistrationPrompt(trigger = "result_prompt") {
+      if (!state.result || state.registrationPromptSeen || !state.registrationPromptEnabled) return;
       state.registrationPromptSeen = true;
       setCharacterSprite(el.registrationMascot, getCharacterIndex(state.result));
+      el.modalRegisterLink.href = makeRegistrationUrl(trigger);
       el.registrationModal.classList.remove("hidden");
       document.body.classList.add("prompt-open");
       el.modalSkipBtn.focus();
@@ -1980,10 +2044,30 @@
       document.body.classList.remove("prompt-open");
     }
 
+    function makeRegistrationUrl(source = "general") {
+      const params = new URLSearchParams({
+        utm_source: "leap_type_test",
+        utm_medium: "interactive_quiz",
+        utm_campaign: "the_leap_fest_2026",
+        utm_content: source
+      });
+      if (state.result) {
+        params.set("leap_type", state.result.code);
+        params.set("leap_type_name", state.result.title.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, ""));
+      }
+      return `${registrationOrigin}?${params.toString()}${registrationHash}`;
+    }
+
+    function updateRegistrationLinks() {
+      document.querySelectorAll("[data-register-source]").forEach(link => {
+        link.href = makeRegistrationUrl(link.dataset.registerSource || "general");
+      });
+    }
+
     function makeCaption() {
       const r = state.result;
       const tags = r.tags.map(tag => "#" + tag).join(" ");
-      return `我測到自己係 ${r.title} (${r.code})：${r.line}\n\n${tags}\n\n你又係邊隻 New High Builder？The LEAP FEST 2026 by EDigest - 2026年8月21日 HKCEC，免費登記： https://leapfest2026.edigest.hk/#/buyTickets`;
+      return `我測到自己係 ${r.title} (${r.code})：${r.line}\n\n${tags}\n\n你又係邊隻 New High Builder？The LEAP FEST 2026 by EDigest - 2026年8月21日 HKCEC，免費登記： ${makeRegistrationUrl("share_caption")}`;
     }
 
     function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
@@ -2239,6 +2323,7 @@
       a.download = `leap-type-${state.result.code}.png`;
       a.click();
       showToast("分享卡已產生");
+      window.setTimeout(() => showRegistrationPrompt("after_download_card"), 900);
     }
 
     async function copyCaption() {
@@ -2249,6 +2334,7 @@
       } catch (err) {
         showToast(caption);
       }
+      window.setTimeout(() => showRegistrationPrompt("after_copy_caption"), 900);
     }
 
     function restart() {
@@ -2256,6 +2342,8 @@
       state.answers = [];
       state.result = null;
       state.registrationPromptSeen = false;
+      state.registrationPromptEnabled = false;
+      window.clearTimeout(showRegistrationPrompt.timer);
       resetScores();
       closeRegistrationPrompt();
       el.resultView.classList.remove("active");
@@ -2293,6 +2381,15 @@
         closeRegistrationPrompt();
       }
     });
+    window.addEventListener("scroll", () => {
+      if (!state.result || state.registrationPromptSeen || !state.registrationPromptEnabled) return;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      const progress = window.scrollY / scrollable;
+      if (progress > .46) showRegistrationPrompt("after_result_scroll");
+    }, { passive: true });
+
+    updateRegistrationLinks();
 
     renderQuestion();
   </script>
