@@ -18,4 +18,4 @@ This folder is ready for manual GitHub Pages upload.
 
 ## Tracking Notes
 
-Registration links go to the event introduction page first and include UTM parameters plus quiz result type, for example `utm_content=result_cta` and `leap_type=ALFC`.
+Registration links go to the event introduction page first with `affl=EDgame` and include UTM parameters plus quiz result type, for example `utm_content=result_cta` and `leap_type=ALFC`.
